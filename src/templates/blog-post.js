@@ -5,7 +5,7 @@ class BlogPostTemplate extends React.Component {
 	render() {
 		return (
 			<Layout location={this.props.location}>
-				<div>hey</div>
+				<div>hedy</div>
 			</Layout>
 		);
 	}
