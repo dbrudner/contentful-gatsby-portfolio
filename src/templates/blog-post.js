@@ -1,14 +1,36 @@
 import React from "react";
 import Layout from "../components/layout";
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 
-class BlogPostTemplate extends React.Component {
-	render() {
-		return (
-			<Layout location={this.props.location}>
-				<div>hedy</div>
-			</Layout>
-		);
+const Blog = props => {
+	return (
+		<Layout>
+			<div
+				dangerouslySetInnerHTML={{
+					__html: documentToHtmlString(
+						props.data.allContentfulBlogPost.edges[0].node.post.json
+					)
+				}}
+			/>
+		</Layout>
+	);
+};
+
+export const pageQuery = graphql`
+	query {
+		allContentfulBlogPost {
+			edges {
+				node {
+					title
+					id
+					tags
+					post {
+						json
+					}
+				}
+			}
+		}
 	}
-}
+`;
 
-export default BlogPostTemplate;
+export default Blog;

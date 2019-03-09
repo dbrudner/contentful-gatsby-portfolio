@@ -3,16 +3,13 @@ import Layout from "../components/layout";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 
 const Blog = props => {
-	console.log(props.data.allContentfulBlogPost.edges[0].node.post.json);
+	console.log(props.data.allContentfulBlogPost.edges);
 	return (
 		<Layout>
-			<div
-				dangerouslySetInnerHTML={{
-					__html: documentToHtmlString(
-						props.data.allContentfulBlogPost.edges[0].node.post.json
-					)
-				}}
-			/>
+			<h1>Blog</h1>
+			{props.data.allContentfulBlogPost.edges.map(({ node }) => (
+				<div>{node.title}</div>
+			))}
 		</Layout>
 	);
 };
@@ -25,9 +22,6 @@ export const pageQuery = graphql`
 					title
 					id
 					tags
-					post {
-						json
-					}
 				}
 			}
 		}
