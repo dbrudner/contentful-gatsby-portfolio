@@ -7,6 +7,8 @@
 		"url": "https://github.com/contentful-userland/gatsby-contentful-starter/issues"
 	},
 	"dependencies": {
+		"@contentful/gatsby-transformer-contentful-richtext": "^13.1.0",
+		"@contentful/rich-text-html-renderer": "^13.1.0",
 		"gatsby": "^2.0.18",
 		"gatsby-cli": "^2.4.12",
 		"gatsby-image": "^2.0.13",
