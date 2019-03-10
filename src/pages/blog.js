@@ -8,7 +8,18 @@ const Blog = props => {
 			<h1>Blog</h1>
 			{props.data.allContentfulBlogPost.edges.map(({ node }) => (
 				<div key={node.id}>
-					<Link to={`/blog/${node.urlPath}`}>{node.title}</Link>
+					<Link to={`/blog/${node.urlPath}`}>
+						<div style={{ display: "inline-block" }}>
+							<img src={node.image.resize.src} />
+						</div>
+						<h2>{node.title}</h2>
+					</Link>
+					<div>
+						{node.tags.map(tag => (
+							<span style={{ marginRight: "10px" }}>{tag}</span>
+						))}
+					</div>
+					<p>{node.description}</p>
 				</div>
 			))}
 		</Layout>
@@ -24,8 +35,9 @@ export const pageQuery = graphql`
 					id
 					tags
 					urlPath
+					description
 					image {
-						resize(width: 100) {
+						resize(width: 300) {
 							src
 							width
 							height
