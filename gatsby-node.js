@@ -13,6 +13,7 @@ exports.createPages = ({ graphql, actions }) => {
 						allContentfulBlogPost {
 							edges {
 								node {
+									urlPath
 									title
 									id
 									tags
@@ -32,9 +33,8 @@ exports.createPages = ({ graphql, actions }) => {
 
 				const posts = result.data.allContentfulBlogPost.edges;
 				posts.forEach((post, index) => {
-					const pageName = post.node.title.replace(/\s/g, "-");
 					createPage({
-						path: `/blog/${pageName}/`,
+						path: `/blog/${post.node.urlPath}/`,
 						component: blogPost,
 						context: {
 							slug: post.node.slug

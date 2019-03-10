@@ -13,6 +13,9 @@ export default () => (
 			<li>
 				<Link to="/blog/">Blog</Link>
 			</li>
+			<li>
+				<Link to="/about/">About</Link>
+			</li>
 		</ul>
 	</nav>
 );
