@@ -8,8 +8,11 @@ const Projects = props => {
 	return (
 		<Layout>
 			<h1>Projects</h1>
-			{getProjects(props).map(({ node }) => (
-				<Project key={node.id} {...node} />
+			{getProjects(props).map(({ node }, i) => (
+				<>
+					<Project key={node.id} {...node} />
+					{i < getProjects(props).length - 1 ? <hr /> : null}
+				</>
 			))}
 		</Layout>
 	);
@@ -24,6 +27,9 @@ export const pageQuery = graphql`
 					githubUrl
 					id
 					siteUrl
+					specialNotes {
+						specialNotes
+					}
 					tags
 					description {
 						description

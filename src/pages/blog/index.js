@@ -16,7 +16,13 @@ const Blog = props => {
 					</Link>
 					<div>
 						{node.tags.map(tag => (
-							<span style={{ marginRight: "10px" }}>{tag}</span>
+							<Link
+								to={`/blog/search?term=${tag}`}
+								key={tag}
+								style={{ marginRight: "10px" }}
+							>
+								#{tag}
+							</Link>
 						))}
 					</div>
 					<p>{node.description}</p>
