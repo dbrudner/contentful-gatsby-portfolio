@@ -11,10 +11,13 @@ export default () => (
 				<Link to="/projects">Projects</Link>
 			</li>
 			<li>
-				<Link to="/blog/">Blog</Link>
+				<Link to="/blog">Blog</Link>
 			</li>
 			<li>
-				<Link to="/about/">About</Link>
+				<Link to="/about">About</Link>
+			</li>
+			<li>
+				<Link to="/gallery">Gallery</Link>
 			</li>
 		</ul>
 	</nav>
