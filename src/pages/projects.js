@@ -5,12 +5,9 @@ import { Project } from "../components/projects";
 const getProjects = props => props.data.allContentfulProject.edges;
 
 const Projects = props => {
-	console.log(props);
-
 	return (
 		<Layout>
 			<h1>Projects</h1>
-
 			{getProjects(props).map(({ node }) => (
 				<Project key={node.id} {...node} />
 			))}
@@ -30,6 +27,11 @@ export const pageQuery = graphql`
 					tags
 					description {
 						description
+					}
+					image {
+						resize(width: 300, height: 300) {
+							src
+						}
 					}
 				}
 			}

@@ -1,15 +1,15 @@
 import React from "react";
 
 export const Project = props => {
-	console.log(props);
+	console.log(props.image.resize.src);
 	return (
 		<div>
-			<h3>
-				<a href={props.siteUrl} target="_blank">
-					{" "}
-					{props.title}
-				</a>
-			</h3>
+			<a href={props.siteUrl} target="_blank">
+				{" "}
+				<h2>{props.title}</h2>
+				<img src={props.image.resize.src} />
+			</a>
+			<p>{props.description.description}</p>
 			<a href={props.githubUrl} target="_blank">
 				Source
 			</a>
