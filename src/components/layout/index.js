@@ -6,7 +6,7 @@ import "./layout.css";
 import { Timeline } from "react-twitter-widgets";
 
 export default function Layout(props) {
-	const smallScreen = window.innerWidth < 768;
+	const smallScreen = window ? window.innerWidth < 768 : null;
 	return (
 		<>
 			<Helmet>
@@ -23,11 +23,11 @@ export default function Layout(props) {
 						<Timeline
 							dataSource={{
 								sourceType: "profile",
-								screenName: "daveBrudner",
+								screenName: "daveBrudner"
 							}}
 							options={{
 								username: "daveBrudner",
-								height: "400",
+								height: "400"
 							}}
 						/>
 					)}
