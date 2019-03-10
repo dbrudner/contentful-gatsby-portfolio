@@ -3,8 +3,10 @@ import Container from "./container";
 import Navigation from "./nav/navigation";
 import Helmet from "react-helmet";
 import "./layout.css";
+import { Timeline } from "react-twitter-widgets";
 
 export default function Layout(props) {
+	const smallScreen = window.innerWidth < 768;
 	return (
 		<>
 			<Helmet>
@@ -14,7 +16,23 @@ export default function Layout(props) {
 				/>
 			</Helmet>
 			<Navigation />
-			<Container>{props.children}</Container>
+			<Container smallScreen={smallScreen}>
+				<div>
+					<div>{props.children}</div>
+					{!smallScreen && (
+						<Timeline
+							dataSource={{
+								sourceType: "profile",
+								screenName: "daveBrudner",
+							}}
+							options={{
+								username: "daveBrudner",
+								height: "400",
+							}}
+						/>
+					)}
+				</div>
+			</Container>
 		</>
 	);
 }

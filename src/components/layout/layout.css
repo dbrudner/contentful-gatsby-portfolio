@@ -1,3 +1,29 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+h1,
+h2,
+p,
+hr {
+	margin: 30px 0;
+}
+
 body {
 	font-family: Lato;
+}
+
+a {
+	text-decoration: none;
+	color: #7878ff;
+}
+
+li {
+	list-style: none;
+}
+
+iframe {
+	width: auto !important;
 }

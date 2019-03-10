@@ -19,8 +19,8 @@ export const Project = props => {
 			</div>
 			<p>{props.description.description}</p>
 			{props.specialNotes && props.specialNotes.specialNotes && (
-				<p style={{ fontWeight: 700 }}>
-					{props.specialNotes.specialNotes}
+				<p style={{ fontWeight: 700, color: "red" }}>
+					<span>*</span> {props.specialNotes.specialNotes}
 				</p>
 			)}
 			<ul>
