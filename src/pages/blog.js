@@ -24,6 +24,13 @@ export const pageQuery = graphql`
 					id
 					tags
 					urlPath
+					image {
+						resize(width: 100) {
+							src
+							width
+							height
+						}
+					}
 				}
 			}
 		}

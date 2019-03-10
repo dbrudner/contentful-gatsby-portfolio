@@ -15,7 +15,6 @@ exports.createPages = ({ graphql, actions }) => {
 								node {
 									urlPath
 									title
-									id
 									tags
 									post {
 										json
@@ -33,12 +32,11 @@ exports.createPages = ({ graphql, actions }) => {
 
 				const posts = result.data.allContentfulBlogPost.edges;
 				posts.forEach((post, index) => {
+					console.log(post);
 					createPage({
 						path: `/blog/${post.node.urlPath}/`,
 						component: blogPost,
-						context: {
-							slug: post.node.slug
-						}
+						context: post.node
 					});
 				});
 			})
