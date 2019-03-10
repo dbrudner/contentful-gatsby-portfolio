@@ -7,7 +7,7 @@ import { Timeline } from "react-twitter-widgets";
 
 export default function Layout(props) {
 	const smallScreen = (() => {
-		if (window) {
+		if (typeof window !== `undefined`) {
 			return window.innerWidth < 768;
 		}
 	})();
