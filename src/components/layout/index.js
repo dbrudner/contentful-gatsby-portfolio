@@ -6,7 +6,12 @@ import "./layout.css";
 import { Timeline } from "react-twitter-widgets";
 
 export default function Layout(props) {
-	const smallScreen = window ? window.innerWidth < 768 : null;
+	const smallScreen = (() => {
+		if (window) {
+			return window.innerWidth < 768;
+		}
+	})();
+
 	return (
 		<>
 			<Helmet>
