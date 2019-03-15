@@ -8,9 +8,6 @@ const RootIndex = props => {
 				brudner
 				<span>.dev</span>
 			</h1>
-			<h2>
-				Good guy <span>Great developer</span>
-			</h2>
 		</Layout>
 	);
 };
