@@ -1,3 +1,7 @@
+- git config --global -l
+      - git config --global user.email circleci@circleci
+      - git config --global user.name CircleCI
+
 version: 2
 jobs:
     build:
@@ -21,7 +25,7 @@ jobs:
                   command: git commit --allow-empty -m "New release triggered from updating contentful assets"
             - run:
                   name: Deploy
-                  command: git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git
+                  command: git config --global -l && git config --global user.email circleci@circleci && git config --global user.name CircleCI && git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git
             - save_cache:
                   key: dependency-cache-{{ checksum "package.json" }}
                   paths:
