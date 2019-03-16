@@ -1,6 +1,9 @@
 import React from "react";
 import Layout from "../components/layout";
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import {
+	documentToHtmlString,
+	BLOCKS,
+} from "@contentful/rich-text-html-renderer";
 
 const Blog = props => {
 	console.log(props);
@@ -12,16 +15,16 @@ const Blog = props => {
 						renderNode: {
 							[BLOCKS.EMBEDDED_ASSET]: ({
 								data: {
-									target: { fields }
-								}
+									target: { fields },
+								},
 							}) =>
 								`<img src="${fields.file.url}" height="${
 									fields.file.details.image.height
 								}" width="${
 									fields.file.details.image.width
-								}" alt="${fields.description}"/>`
-						}
-					})
+								}" alt="${fields.description}"/>`,
+						},
+					}),
 				}}
 			/>
 		</Layout>
