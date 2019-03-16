@@ -10,20 +10,20 @@ try {
 // Overwrite the Contentful config with environment variables if they exist
 contentfulConfig = {
 	spaceId: process.env.CONTENTFUL_SPACE_ID,
-	accessToken: process.env.CONTENTFUL_DELIVERY_TOKEN,
+	accessToken: process.env.CONTENTFUL_DELIVERY_TOKEN
 };
 
 const { spaceId, accessToken } = contentfulConfig;
 
 if (!spaceId || !accessToken) {
 	throw new Error(
-		"Contentful spaceId and the delivery token need to be provided.",
+		"Contentful spaceId and the delivery token need to be provided."
 	);
 }
 
 module.exports = {
 	siteMetadata: {
-		title: "Gatsby Contentful starter",
+		title: "Gatsby Contentful starter"
 	},
 	pathPrefix: "/gatsby-contentful-starter",
 	plugins: [
@@ -32,9 +32,10 @@ module.exports = {
 		"gatsby-plugin-react-helmet",
 		"gatsby-plugin-sharp",
 		"@contentful/gatsby-transformer-contentful-richtext",
+		"gatsby-plugin-styled-components",
 		{
 			resolve: "gatsby-source-contentful",
-			options: contentfulConfig,
-		},
-	],
+			options: contentfulConfig
+		}
+	]
 };
