@@ -6,7 +6,7 @@ const Blog = props => {
 	return (
 		<Layout>
 			<h1>Blog</h1>
-			{props.data.allContentfulBlogPost.edges.map(({ node }) => (
+			{props.data.allContentfulBlogPost.edges.map(({ node }, i, a) => (
 				<div key={node.id}>
 					<Link to={`/blog/${node.urlPath}`}>
 						<div style={{ display: "inline-block" }}>
@@ -26,6 +26,7 @@ const Blog = props => {
 						))}
 					</div>
 					<p>{node.description}</p>
+					{i < a.length - 1 && <hr />}
 				</div>
 			))}
 		</Layout>

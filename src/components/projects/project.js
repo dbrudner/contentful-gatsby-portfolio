@@ -1,4 +1,5 @@
 import React from "react";
+import { Tags } from "../common/tags";
 
 export const Project = props => {
 	return (
@@ -6,6 +7,18 @@ export const Project = props => {
 			<a href={props.siteUrl} target="_blank">
 				{" "}
 				<h2>{props.title}</h2>
+			</a>
+			<Tags>
+				{props.tags.map(tag => (
+					<a
+						href={`https://twitter.com/search?q=${tag}&src=typd&lang=en`}
+						target="_blank"
+					>
+						<li key={tag}>#{tag}</li>
+					</a>
+				))}
+			</Tags>
+			<a href={props.siteUrl} target="_blank">
 				<img src={props.image.resize.src} />
 			</a>
 			<div>
@@ -23,11 +36,6 @@ export const Project = props => {
 					<span>*</span> {props.specialNotes.specialNotes}
 				</p>
 			)}
-			<ul>
-				{props.tags.map(tag => (
-					<li key={tag}>{tag}</li>
-				))}
-			</ul>
 		</div>
 	);
 };

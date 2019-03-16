@@ -4,7 +4,7 @@ import Layout from "../components/layout";
 const RootIndex = props => {
 	return (
 		<Layout>
-			<h1>brudner</h1>
+			<h1>brudnerg</h1>
 		</Layout>
 	);
 };
