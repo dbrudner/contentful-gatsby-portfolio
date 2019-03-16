@@ -8,7 +8,20 @@ const Blog = props => {
 		<Layout>
 			<div
 				dangerouslySetInnerHTML={{
-					__html: documentToHtmlString(props.pageContext.post.json)
+					__html: documentToHtmlString(props.pageContext.post.json, {
+						renderNode: {
+							[BLOCKS.EMBEDDED_ASSET]: ({
+								data: {
+									target: { fields }
+								}
+							}) =>
+								`<img src="${fields.file.url}" height="${
+									fields.file.details.image.height
+								}" width="${
+									fields.file.details.image.width
+								}" alt="${fields.description}"/>`
+						}
+					})
 				}}
 			/>
 		</Layout>
