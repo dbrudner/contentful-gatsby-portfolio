@@ -5,10 +5,6 @@ import { BLOCKS } from "@contentful/rich-text-types";
 import styled from "styled-components";
 
 const BlogPost = styled.div`
-	p {
-		line-height: 30px;
-		font-size: 18px;
-	}
 	img {
 		width: 100%;
 	}
