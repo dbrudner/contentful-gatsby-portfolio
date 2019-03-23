@@ -18,16 +18,7 @@ const Index = props => {
 			<h1>{header}</h1>
 			<Content
 				dangerouslySetInnerHTML={{
-					__html: documentToHtmlString(pageContent.json, {
-						renderNode: {
-							[BLOCKS.EMBEDDED_ASSET]: asset => {
-								return `<img src="${
-									fields.file["en-US"].url
-								}" alt="${fields.description ||
-									fields.title["en-US"]}"/>`;
-							}
-						}
-					})
+					__html: documentToHtmlString(pageContent.json)
 				}}
 			/>
 		</Layout>
