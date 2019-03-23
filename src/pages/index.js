@@ -1,22 +1,18 @@
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
-import { BLOCKS } from "@contentful/rich-text-types";
 import { graphql } from "gatsby";
 import React from "react";
-import styled from "styled-components";
 import Layout from "../components/layout";
 
-const Content = styled.div`
-	img {
-		width: 100%;
-	}
-`;
-
 const Index = props => {
-	const { header, pageContent } = props.data.allContentfulPage.edges[0].node;
+	const {
+		header,
+		pageContent,
+		banner
+	} = props.data.allContentfulPage.edges[0].node;
 	return (
-		<Layout>
+		<Layout banner={banner.file.url}>
 			<h1>{header}</h1>
-			<Content
+			<div
 				dangerouslySetInnerHTML={{
 					__html: documentToHtmlString(pageContent.json)
 				}}
@@ -33,6 +29,11 @@ export const pageQuery = graphql`
 					header
 					pageContent {
 						json
+					}
+					banner {
+						file {
+							url
+						}
 					}
 				}
 			}

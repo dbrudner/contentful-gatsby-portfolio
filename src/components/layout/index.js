@@ -21,6 +21,7 @@ export default function Layout(props) {
 				/>
 			</Helmet>
 			<Navigation />
+			<img src={props.banner} style={{ width: "100%" }} />
 			<Container smallScreen={smallScreen}>
 				<div>
 					<div>{props.children}</div>
