@@ -38,7 +38,7 @@ const Index = props => {
 
 	return (
 		<Layout>
-			<h1>Dave Brudner - Front End Dev, Cat Enthusiast</h1>
+			<h1>Dave Brudner - Software Dev, Cat Enthusiast</h1>
 			<Spotlights smallScreen={smallScreen}>
 				<ProjectSpotlight {...project} />
 				<LatestBlog node={blog} />
