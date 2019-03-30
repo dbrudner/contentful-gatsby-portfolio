@@ -7,10 +7,14 @@ import styled from "styled-components";
 
 const Spotlights = styled.div`
 	display: grid;
-	grid-template-columns: ${props => (props.smallScreen ? "1fr" : "1fr 3fr")};
+	grid-template-columns: 1fr 3fr;
 	grid-column-gap: 60px;
-	grid-row-gap: ${props => (props.smallScreen ? "30px" : "")};
 	margin-top: 30px;
+
+	@media (max-width: 768px) {
+		grid-template-columns: 1fr;
+		grid-row-gap: 30px;
+	}
 `;
 
 const Index = props => {
