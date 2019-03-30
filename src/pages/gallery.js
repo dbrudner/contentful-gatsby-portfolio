@@ -2,7 +2,6 @@ import React from "react";
 import Layout from "../components/layout";
 
 const RootIndex = props => {
-	console.log(props.data.allContentfulImage.edges);
 	return (
 		<Layout>
 			<h1>Gallery</h1>

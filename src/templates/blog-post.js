@@ -11,7 +11,6 @@ const BlogPost = styled.div`
 `;
 
 const Blog = props => {
-	console.log(BLOCKS);
 	return (
 		<Layout>
 			<BlogPost
@@ -23,7 +22,6 @@ const Blog = props => {
 									target: { fields },
 								},
 							}) => {
-								console.log(fields);
 								return `<img src="${
 									fields.file["en-US"].url
 								}" alt="${fields.description ||

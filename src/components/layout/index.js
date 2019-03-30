@@ -3,7 +3,7 @@ import Container from "./container";
 import Navigation from "./nav/navigation";
 import Helmet from "react-helmet";
 import "./layout.css";
-import { Timeline } from "react-twitter-widgets";
+import { Footer } from "./footer";
 
 export default function Layout(props) {
 	const smallScreen = (() => {
@@ -21,24 +21,12 @@ export default function Layout(props) {
 				/>
 			</Helmet>
 			<Navigation />
-			<img src={props.banner} style={{ width: "100%" }} />
 			<Container smallScreen={smallScreen}>
 				<div>
 					<div>{props.children}</div>
-					{!smallScreen && (
-						<Timeline
-							dataSource={{
-								sourceType: "profile",
-								screenName: "daveBrudner"
-							}}
-							options={{
-								username: "daveBrudner",
-								height: "400"
-							}}
-						/>
-					)}
 				</div>
 			</Container>
+			<Footer />
 		</>
 	);
 }

@@ -27,3 +27,17 @@ li {
 iframe {
 	width: auto !important;
 }
+
+p,
+b {
+	font-size: 18px;
+	line-height: 25px;
+}
+
+h1 {
+	font-size: 56px;
+}
+
+h2 {
+	font-size: 40px;
+}

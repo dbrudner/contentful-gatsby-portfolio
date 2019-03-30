@@ -1,33 +1,13 @@
 import React from "react";
 import Layout from "../../components/layout";
-import { Link } from "gatsby";
+import { Post } from "../../components/blog/post";
 
 const Blog = props => {
 	return (
 		<Layout>
 			<h1>Blog</h1>
 			{props.data.allContentfulBlogPost.edges.map(({ node }, i, a) => (
-				<div key={node.id}>
-					<Link to={`/blog/${node.urlPath}`}>
-						<div style={{ display: "inline-block" }}>
-							<img src={node.image.resize.src} />
-						</div>
-						<h2>{node.title}</h2>
-					</Link>
-					<div>
-						{node.tags.map(tag => (
-							<Link
-								to={`/blog/search?term=${tag}`}
-								key={tag}
-								style={{ marginRight: "10px" }}
-							>
-								#{tag}
-							</Link>
-						))}
-					</div>
-					<p>{node.description}</p>
-					{i < a.length - 1 && <hr />}
-				</div>
+				<Post node={node} i={i} a={a} />
 			))}
 		</Layout>
 	);
